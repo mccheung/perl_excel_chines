@@ -5,9 +5,9 @@
 
  
 == 背景 ==
-    * 读XLSX文件使用[[https://metacpan.org/pod/Spreadsheet::XLSX|Spreadsheet::XLSX]]
-    * 写XLSX文件使用[[https://metacpan.org/pod/Excel::Writer::XLSX|Excel::Writer::XLSX]]
-    * *Microsoft Excel 2007* 之后的xlsx格式，实际是ZIP+XML（将xlsx文件重名名为zip，而后再用winzip提取文件就可看到内部的xml文件），所以只能是utf-8编码。
+* 读XLSX文件使用[[https://metacpan.org/pod/Spreadsheet::XLSX|Spreadsheet::XLSX]]
+* * 写XLSX文件使用[[https://metacpan.org/pod/Excel::Writer::XLSX|Excel::Writer::XLSX]]
+* *Microsoft Excel 2007* 之后的xlsx格式，实际是ZIP+XML（将xlsx文件重名名为zip，而后再用winzip提取文件就可看到内部的xml文件），所以只能是utf-8编码。
 {{{
 --- eg.xml ---
 <hello>大家好<\hello>
@@ -24,9 +24,10 @@ e5a4a7: 大
 e5aeb6: 家
 e5a5bd: 好
 }}}
-    * Windows cmd/powershell 用的都是gbk编码，所以perl的标准输入输出都是gbk编码
-    * Perl内部的string有所谓的Text String 与Binary String之分，从text到binary的转换为Encode，binary到text的转换为Decode。
-        * Sptreasheet::XLS读入的每个cell的Value存储的都是Byte String，使用时一定要特别注意。尤其是在匹配的时候，不要用Text String去匹配Byte String，也不要用Byte String去匹配Text String。
+
+* Windows cmd/powershell 用的都是gbk编码，所以perl的标准输入输出都是gbk编码
+* Perl内部的string有所谓的Text String 与Binary String之分，从text到binary的转换为Encode，binary到text的转换为Decode。
+* Sptreasheet::XLS读入的每个cell的Value存储的都是Byte String，使用时一定要特别注意。尤其是在匹配的时候，不要用Text String去匹配Byte String，也不要用Byte String去匹配Text String。
         * 参见[[http://perldoc.perl.org/perlunitut.html#I%2fO-flow-(the-actual-5-minute-tutorial)|perlunitut]]
     * 输入的XLSX表格内容
 |   | A      | B      | C      |
